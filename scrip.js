@@ -1,24 +1,25 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =====================================
-    // PORTADA DE BIENVENIDA
-    // =====================================
+    // ====================================
+    // CONFIGURACIÓN GENERAL
+    // ====================================
 
-    const botonBienvenido =
-        document.getElementById("btnBienvenido");
+    const portada = document.getElementById("portada");
+    const paginaPrincipal = document.getElementById("paginaPrincipal");
+    const botonBienvenido = document.getElementById("btnBienvenido");
+    const videoFondo = document.getElementById("videoFondo");
 
-    const portada =
-        document.getElementById("portada");
+    const contactosFlotantes =
+        document.getElementById("contactosFlotantes");
 
-    const paginaPrincipal =
-        document.getElementById("paginaPrincipal");
+    const reducirMovimiento = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
 
-    const videoFondo =
-        document.getElementById("videoFondo");
-
-    const instagramFlotante =
-        document.getElementById("instagramFlotante");
+    // ====================================
+    // VIDEO DE BIENVENIDA
+    // ====================================
 
     if (videoFondo) {
         videoFondo.muted = true;
@@ -27,15 +28,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (reproduccion) {
             reproduccion.catch(function () {
-                console.log("Reproducción automática no disponible.");
+                console.log("Reproducción automática bloqueada.");
             });
         }
     }
 
+    // ====================================
+    // ENTRAR A LA PÁGINA
+    // ====================================
+
     botonBienvenido.addEventListener("click", function () {
+
         portada.hidden = true;
         paginaPrincipal.hidden = false;
-        instagramFlotante.hidden = false;
+        contactosFlotantes.hidden = false;
 
         if (videoFondo) {
             videoFondo.pause();
@@ -45,38 +51,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // =====================================
-    // MENÚ PARA CELULARES
-    // =====================================
+    // ====================================
+    // MENÚ DE CELULARES
+    // ====================================
 
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const menuPrincipal =
-        document.getElementById("menuPrincipal");
+    const menuToggle = document.getElementById("menuToggle");
+    const menuPrincipal = document.getElementById("menuPrincipal");
 
     function cerrarMenu() {
         menuPrincipal.classList.remove("abierto");
+        menuToggle.textContent = "☰";
         menuToggle.setAttribute("aria-expanded", "false");
         menuToggle.setAttribute("aria-label", "Abrir menú");
-        menuToggle.textContent = "☰";
     }
 
     menuToggle.addEventListener("click", function () {
+
         const abierto =
             menuPrincipal.classList.toggle("abierto");
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(abierto)
-        );
-
+        menuToggle.textContent = abierto ? "✕" : "☰";
+        menuToggle.setAttribute("aria-expanded", String(abierto));
         menuToggle.setAttribute(
             "aria-label",
             abierto ? "Cerrar menú" : "Abrir menú"
         );
-
-        menuToggle.textContent = abierto ? "✕" : "☰";
     });
 
     menuPrincipal.querySelectorAll("a").forEach(function (enlace) {
@@ -84,30 +83,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // =====================================
-    // EFECTO DEL MENÚ AL BAJAR
-    // =====================================
+    // ====================================
+    // MENÚ AL DESPLAZARSE
+    // ====================================
 
     const navbar = document.getElementById("navbar");
 
-    function actualizarNavbar() {
+    window.addEventListener("scroll", function () {
         navbar.classList.toggle("scrolled", window.scrollY > 50);
-    }
-
-    window.addEventListener(
-        "scroll",
-        actualizarNavbar,
-        { passive: true }
-    );
+    }, { passive: true });
 
 
-    // =====================================
-    // ANIMACIONES AL BAJAR
-    // =====================================
-
-    const reducirMovimiento = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    );
+    // ====================================
+    // ANIMACIONES DE ENTRADA
+    // ====================================
 
     const elementosAnimados =
         document.querySelectorAll(".reveal");
@@ -116,14 +105,17 @@ document.addEventListener("DOMContentLoaded", function () {
         "IntersectionObserver" in window &&
         !reducirMovimiento.matches
     ) {
+
         const observador = new IntersectionObserver(
             function (entradas, observer) {
+
                 entradas.forEach(function (entrada) {
                     if (entrada.isIntersecting) {
                         entrada.target.classList.add("visible");
                         observer.unobserve(entrada.target);
                     }
                 });
+
             },
             {
                 threshold: 0.05,
@@ -141,11 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // =====================================
+    // ====================================
     // FOTOS Y VIDEOS DEL CLUB
-    // =====================================
+    // ====================================
 
     const galerias = {
+
         entrenamientos: [
             "Entrenamiento1.mp4",
             "Entrenamiento2.jpeg",
@@ -156,13 +149,21 @@ document.addEventListener("DOMContentLoaded", function () {
             "competencias1.JPG",
             "competencias2.JPG",
             "competencias3.JPG",
-            "competencias4.JPG"
+            "competencias4.JPG",
+            "competencias5.JPG",
+            "competencias6.JPG",
+            "competencias7.JPG",
+            "competencias8.JPG",
+            "competencias9.JPG",
+            "competencias10.JPG"
         ],
 
         comunidad: [
-            // Agrega aquí las fotos futuras:
-            // "comunidad1.jpg"
+            "comunidad1.JPG",
+            "comunidad2.JPG",
+            "comunidad3.JPG"
         ]
+
     };
 
     const nombres = {
@@ -170,6 +171,11 @@ document.addEventListener("DOMContentLoaded", function () {
         competencias: "COMPETENCIAS",
         comunidad: "COMUNIDAD"
     };
+
+
+    // ====================================
+    // VENTANAS DE LAS GALERÍAS
+    // ====================================
 
     const ventanaGaleria =
         document.getElementById("ventanaGaleria");
@@ -192,6 +198,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const cerrarVisor =
         document.getElementById("cerrarVisor");
 
+
+    // ABRIR IMAGEN AMPLIADA
+
     function ampliarFotografia(ruta, descripcion) {
         imagenGrande.src = ruta;
         imagenGrande.alt = descripcion;
@@ -212,10 +221,14 @@ document.addEventListener("DOMContentLoaded", function () {
         imagenGrande.removeAttribute("src");
     });
 
+
+    // ABRIR GALERÍA
+
     function abrirGaleria(categoria) {
 
         if (!Object.prototype.hasOwnProperty.call(
-            galerias, categoria
+            galerias,
+            categoria
         )) {
             return;
         }
@@ -229,16 +242,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const mensaje = document.createElement("p");
             mensaje.className = "mensaje-vacio";
             mensaje.textContent =
-                "Próximamente compartiremos fotos y videos de esta sección.";
-
+                "Próximamente tendremos contenido de esta sección.";
             contenidoGaleria.appendChild(mensaje);
         }
 
         archivos.forEach(function (archivo, indice) {
 
-            const extension =
-                archivo.split(".").pop().toLowerCase();
-
+            const extension = archivo.split(".").pop().toLowerCase();
             const ruta = encodeURIComponent(archivo);
 
             const esVideo =
@@ -251,24 +261,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const elemento = document.createElement("div");
-            elemento.className = "elemento-galeria";
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "elemento-galeria";
 
             const descripcion =
                 nombres[categoria] + " " + (indice + 1);
 
             if (esVideo) {
+
                 const video = document.createElement("video");
+
                 video.src = ruta;
                 video.controls = true;
                 video.preload = "metadata";
                 video.playsInline = true;
                 video.setAttribute("aria-label", descripcion);
-                elemento.appendChild(video);
+
+                tarjeta.appendChild(video);
             }
 
             if (esImagen) {
+
                 const imagen = document.createElement("img");
+
                 imagen.src = ruta;
                 imagen.alt = descripcion;
                 imagen.loading = "lazy";
@@ -284,6 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 imagen.addEventListener("keydown", function (evento) {
+
                     if (
                         evento.key === "Enter" ||
                         evento.key === " "
@@ -293,25 +309,32 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
 
-                elemento.appendChild(imagen);
+                tarjeta.appendChild(imagen);
             }
 
             const texto = document.createElement("p");
             texto.textContent = descripcion;
 
-            elemento.appendChild(texto);
-            contenidoGaleria.appendChild(elemento);
+            tarjeta.appendChild(texto);
+            contenidoGaleria.appendChild(tarjeta);
         });
 
         ventanaGaleria.showModal();
     }
 
+    // BOTONES DE GALERÍA
+
     document.querySelectorAll("[data-galeria]")
         .forEach(function (boton) {
+
             boton.addEventListener("click", function () {
                 abrirGaleria(boton.dataset.galeria);
             });
+
         });
+
+
+    // CERRAR GALERÍA
 
     cerrarGaleria.addEventListener("click", function () {
         ventanaGaleria.close();
@@ -324,68 +347,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     ventanaGaleria.addEventListener("close", function () {
+
         contenidoGaleria.querySelectorAll("video")
             .forEach(function (video) {
                 video.pause();
             });
+
     });
 
 
-    // =====================================
+    // ====================================
     // AUSPICIADORES OFICIALES
-    // =====================================
-
-    /*
-       Guarda las imágenes con estos nombres
-       directamente dentro de leonesWeb.
-
-       Puedes cambiar las extensiones aquí
-       si algún archivo es PNG o JPEG.
-    */
+    // ====================================
 
     const auspiciadores = [
-        {
-            nombre: "Diesel Service",
-            imagen: "auspiciador1.jpg"
-        },
-        {
-            nombre: "MendoLab",
-            imagen: "auspiciador2.jpg"
-        },
-        {
-            nombre: "Solución DPF Diésel Motor",
-            imagen: "auspiciador3.jpg"
-        },
-        {
-            nombre: "Cabaña López",
-            imagen: "auspiciador4.jpg"
-        },
-        {
-            nombre: "Rencar Wash",
-            imagen: "auspiciador5.jpg"
-        },
-        {
-            nombre: "Oasis Cajas Mecánicas",
-            imagen: "auspiciador6.jpg"
-        },
-        {
-            nombre: "DS Tuning",
-            imagen: "auspiciador7.jpg"
-        },
-        {
-            nombre: "Passion Motors",
-            imagen: "auspiciador8.jpg"
-        },
-        {
-            nombre: "Renca",
-            imagen: "auspiciador9.jpg"
-        }
+
+        { nombre: "Diesel Service", imagen: "auspiciador1.jpg" },
+
+        { nombre: "MendoLab", imagen: "auspiciador2.jpg" },
+
+        { nombre: "Solución DPF", imagen: "auspiciador3.jpg" },
+
+        { nombre: "Cabaña López", imagen: "auspiciador4.jpg" },
+
+        { nombre: "Rencar Wash", imagen: "auspiciador5.jpg" },
+
+        { nombre: "Oasis Cajas Mecánicas", imagen: "auspiciador6.jpg" },
+
+        { nombre: "DS Tuning", imagen: "auspiciador7.jpg" },
+
+        { nombre: "Passion Motors", imagen: "auspiciador8.jpg" },
+
+        { nombre: "Renca", imagen: "auspiciador9.jpg" }
+
     ];
-
-
-    // =====================================
-    // CREAR TARJETAS DE AUSPICIADORES
-    // =====================================
 
     const carruselVentana =
         document.getElementById("carruselVentana");
@@ -398,6 +393,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const botonSiguiente =
         document.getElementById("auspiciadoresSiguiente");
+
+
+    // CREAR TARJETAS
 
     function crearTarjeta(auspiciador, copia) {
 
@@ -429,53 +427,45 @@ document.addEventListener("DOMContentLoaded", function () {
         return tarjeta;
     }
 
-    // DOS SERIES PARA PRODUCIR EL BUCLE INFINITO
+    // REPETIR LAS TARJETAS PARA CREAR UN BUCLE
 
     auspiciadores.forEach(function (auspiciador) {
-        carruselPista.appendChild(
-            crearTarjeta(auspiciador, false)
-        );
+        carruselPista.appendChild(crearTarjeta(auspiciador, false));
     });
 
     auspiciadores.forEach(function (auspiciador) {
-        carruselPista.appendChild(
-            crearTarjeta(auspiciador, true)
-        );
+        carruselPista.appendChild(crearTarjeta(auspiciador, true));
     });
 
 
-    // =====================================
-    // MOVIMIENTO CONTINUO DEL CARRUSEL
-    // =====================================
+    // ====================================
+    // CARRUSEL AUTOMÁTICO
+    // ====================================
 
     let pausadoPorMouse = false;
     let pausadoPorFoco = false;
     let arrastrando = false;
-    let visibleEnPantalla = false;
+    let visible = false;
 
-    let inicioArrastre = 0;
-    let desplazamientoInicial = 0;
-
+    let inicioX = 0;
+    let scrollInicial = 0;
     let tiempoAnterior = 0;
 
-    const velocidad = 35; // Píxeles por segundo
+    const velocidad = 35;
 
-    // Distancia exacta entre ambas series.
     function longitudSerie() {
+
         const tarjetas = carruselPista.children;
 
-        if (tarjetas.length < 2) {
+        if (tarjetas.length < auspiciadores.length + 1) {
             return 0;
         }
 
-        return (
-            tarjetas[auspiciadores.length].offsetLeft -
-            tarjetas[0].offsetLeft
-        );
+        return tarjetas[auspiciadores.length].offsetLeft -
+               tarjetas[0].offsetLeft;
     }
 
-    // Mantener el desplazamiento dentro del primer ciclo.
-    function normalizarPosicion() {
+    function normalizarCarrusel() {
 
         const longitud = longitudSerie();
 
@@ -492,22 +482,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Detectar cuándo la sección está visible.
     if ("IntersectionObserver" in window) {
 
-        const observadorCarrusel = new IntersectionObserver(
-            function (entradas) {
-                visibleEnPantalla = entradas[0].isIntersecting;
-            },
-            {
-                threshold: 0.01
-            }
-        );
+        const observer = new IntersectionObserver(function (entradas) {
+            visible = entradas[0].isIntersecting;
+        });
 
-        observadorCarrusel.observe(carruselVentana);
+        observer.observe(carruselVentana);
 
     } else {
-        visibleEnPantalla = true;
+        visible = true;
     }
 
     function animarCarrusel(tiempo) {
@@ -518,20 +502,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tiempoAnterior = tiempo;
 
-        const puedeMoverse =
+        if (
             !paginaPrincipal.hidden &&
-            visibleEnPantalla &&
+            visible &&
             !document.hidden &&
             !reducirMovimiento.matches &&
             !pausadoPorMouse &&
             !pausadoPorFoco &&
-            !arrastrando;
-
-        if (puedeMoverse && longitudSerie() > 0) {
-
+            !arrastrando
+        ) {
             carruselVentana.scrollLeft += velocidad * delta;
-
-            normalizarPosicion();
+            normalizarCarrusel();
         }
 
         requestAnimationFrame(animarCarrusel);
@@ -540,9 +521,7 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(animarCarrusel);
 
 
-    // =====================================
-    // PAUSAR AL PASAR EL MOUSE
-    // =====================================
+    // DETENER AL PASAR EL MOUSE
 
     carruselVentana.addEventListener("mouseenter", function () {
         pausadoPorMouse = true;
@@ -563,27 +542,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // =====================================
     // ARRASTRAR CON EL MOUSE
-    // =====================================
 
     carruselVentana.addEventListener("pointerdown", function (evento) {
 
-        if (evento.pointerType === "touch") {
-            return;
-        }
-
-        if (evento.button !== 0) {
+        if (evento.pointerType === "touch" || evento.button !== 0) {
             return;
         }
 
         arrastrando = true;
-
-        inicioArrastre = evento.clientX;
-        desplazamientoInicial = carruselVentana.scrollLeft;
+        inicioX = evento.clientX;
+        scrollInicial = carruselVentana.scrollLeft;
 
         carruselVentana.classList.add("arrastrando");
-
         carruselVentana.setPointerCapture(evento.pointerId);
     });
 
@@ -593,68 +564,48 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const distancia = evento.clientX - inicioArrastre;
-
         carruselVentana.scrollLeft =
-            desplazamientoInicial - distancia;
+            scrollInicial - (evento.clientX - inicioX);
     });
 
     function terminarArrastre() {
-        if (!arrastrando) {
-            return;
-        }
-
         arrastrando = false;
-
         carruselVentana.classList.remove("arrastrando");
-
-        normalizarPosicion();
+        normalizarCarrusel();
     }
 
-    carruselVentana.addEventListener(
-        "pointerup",
-        terminarArrastre
-    );
-
-    carruselVentana.addEventListener(
-        "pointercancel",
-        terminarArrastre
-    );
-
-    carruselVentana.addEventListener(
-        "lostpointercapture",
-        terminarArrastre
-    );
+    carruselVentana.addEventListener("pointerup", terminarArrastre);
+    carruselVentana.addEventListener("pointercancel", terminarArrastre);
+    carruselVentana.addEventListener("lostpointercapture", terminarArrastre);
 
 
-    // =====================================
     // FLECHAS DEL CARRUSEL
-    // =====================================
 
     function moverCarrusel(direccion) {
 
-        // Aproximadamente una tarjeta cada vez.
-        const primeraTarjeta =
-            carruselPista.querySelector(".auspiciador-card");
+        const tarjeta = carruselPista.querySelector(".auspiciador-card");
 
-        if (!primeraTarjeta) {
+        if (!tarjeta) {
             return;
         }
 
-        const distancia =
-            primeraTarjeta.getBoundingClientRect().width + 22;
+        const estilos = getComputedStyle(carruselPista);
+        const separacion = parseFloat(estilos.columnGap) || 0;
 
-        let posicion =
-            carruselVentana.scrollLeft +
-            distancia * direccion;
-
+        const distancia = tarjeta.offsetWidth + separacion;
         const longitud = longitudSerie();
 
-        if (longitud > 0) {
-            posicion = ((posicion % longitud) + longitud) % longitud;
+        if (longitud <= 0) {
+            return;
         }
 
-        carruselVentana.scrollLeft = posicion;
+        let nuevaPosicion =
+            carruselVentana.scrollLeft + distancia * direccion;
+
+        nuevaPosicion =
+            ((nuevaPosicion % longitud) + longitud) % longitud;
+
+        carruselVentana.scrollLeft = nuevaPosicion;
     }
 
     botonAnterior.addEventListener("click", function () {
@@ -665,13 +616,6 @@ document.addEventListener("DOMContentLoaded", function () {
         moverCarrusel(1);
     });
 
-
-    // =====================================
-    // AJUSTES DE TAMAÑO
-    // =====================================
-
-    window.addEventListener("resize", function () {
-        normalizarPosicion();
-    });
+    window.addEventListener("resize", normalizarCarrusel);
 
 });
