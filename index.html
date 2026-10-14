@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Club Leones Rugby Club Chile. Entrenamientos, competencias, comunidad y auspiciadores.">
+    <meta name="theme-color" content="#080808">
+    <title>Club Leones | Rugby Club Chile</title>
+    <link rel="icon" href="logoLeones.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PORTADA CON VIDEO -->
+
+    <section class="portada" id="portada">
+        <video id="videoFondo" class="video-fondo"
+               autoplay muted loop playsinline preload="metadata"
+               poster="inicioP.JPG">
+            <source src="inicio.mp4" type="video/mp4">
+        </video>
+
+        <div class="capa-oscura"></div>
+
+        <div class="logo-portada">
+            <img src="logoLeones.png" alt="Escudo del Club Leones">
+        </div>
+
+        <div class="contenido-portada">
+            <div class="linea-superior"></div>
+            <h3>RUGBY CLUB CHILE</h3>
+            <h1>CLUB <span>LEONES</span></h1>
+            <p>MÁS QUE UN EQUIPO, UNA FAMILIA</p>
+
+            <button id="btnBienvenido" class="btn-bienvenido" type="button">
+                BIENVENIDO <span aria-hidden="true">→</span>
+            </button>
+        </div>
+
+        <div class="texto-inferior">
+            PASIÓN · DISCIPLINA · HERMANDAD
+        </div>
+    </section>
+
+
+    <!-- PÁGINA PRINCIPAL -->
+
+    <main id="paginaPrincipal" hidden>
+
+        <!-- MENÚ -->
+
+        <header class="navbar" id="navbar">
+            <a href="#inicio" class="logo">
+                <img src="logoLeones.png"
+                     class="logo-navbar"
+                     alt="Escudo Club Leones">
+
+                <span class="nombre-club">
+                    CLUB <strong>LEONES</strong>
+                </span>
+            </a>
+
+            <button id="menuToggle" class="menu-toggle"
+                    type="button" aria-label="Abrir menú"
+                    aria-expanded="false" aria-controls="menuPrincipal">
+                ☰
+            </button>
+
+            <nav id="menuPrincipal" aria-label="Navegación principal">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#horarios">Entrenamientos</a>
+                <a href="#actividades">Galería</a>
+                <a href="#partidos">Partidos</a>
+                <a href="#patrocinadores">Auspiciadores</a>
+                <a href="#unete" class="nav-unete">ÚNETE AL CLUB</a>
+            </nav>
+        </header>
+
+
+        <!-- SOMOS LEONES -->
+
+        <section class="inicio-principal" id="inicio">
+            <div class="inicio-contenido">
+                <h4 class="reveal">BIENVENIDOS A NUESTRA FAMILIA</h4>
+                <h2 class="reveal">SOMOS <span>LEONES</span></h2>
+
+                <p class="reveal">
+                    Pasión, compromiso y compañerismo.
+                    Unidos dentro y fuera de la cancha.
+                </p>
+
+                <a href="#nosotros" class="btn-rojo reveal">
+                    CONOCE NUESTRO CLUB →
+                </a>
+            </div>
+        </section>
+
+
+        <!-- QUIÉNES SOMOS -->
+
+        <section class="seccion nosotros" id="nosotros">
+            <h4 class="reveal">NUESTRA IDENTIDAD</h4>
+            <h2 class="reveal">¿QUIÉNES SOMOS?</h2>
+            <div class="linea-roja reveal"></div>
+
+            <p class="reveal">
+                Somos Club Leones Rugby Club Chile, una comunidad
+                que comparte la pasión por el rugby.
+
+                Creemos en el respeto, la disciplina,
+                el trabajo en equipo y el compañerismo.
+
+                Nuestro objetivo es seguir creciendo,
+                formando jugadores y acercando el rugby
+                a más personas.
+            </p>
+
+            <div class="trayectoria-club reveal">
+                <h3>1 AÑO</h3>
+                <p>
+                    Un año creciendo juntos, compartiendo
+                    nuestra pasión por el rugby y construyendo
+                    una gran familia deportiva.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- FRASE MOTIVADORA -->
+
+        <section class="frase-leones">
+            <div class="frase-overlay"></div>
+
+            <div class="frase-contenido reveal">
+                <span class="frase-etiqueta">
+                    EL ESPÍRITU DE LOS LEONES
+                </span>
+
+                <h2>NO SOMOS SOLO <span>UN EQUIPO.</span></h2>
+                <h3>SOMOS UNA FAMILIA.</h3>
+
+                <p>
+                    Cada entrenamiento, cada partido
+                    y cada desafío nos hace más fuertes.
+                </p>
+
+                <a href="#unete" class="btn-rojo">
+                    SÉ PARTE DE NUESTRA HISTORIA →
+                </a>
+            </div>
+        </section>
+
+
+        <!-- HORARIOS Y UBICACIONES -->
+
+        <section class="seccion horarios-seccion" id="horarios">
+            <h4 class="reveal">VEN A ENTRENAR CON NOSOTROS</h4>
+            <h2 class="reveal">HORARIOS Y <span>UBICACIONES</span></h2>
+            <div class="linea-roja reveal"></div>
+
+            <p class="reveal">
+                ¡Te esperamos en la cancha!
+                Conoce nuestros horarios y encuentra
+                fácilmente cómo llegar.
+            </p>
+
+            <div class="contenedor-ubicaciones">
+
+                <article class="ubicacion-card reveal">
+                    <div class="ubicacion-encabezado">
+                        <span class="ubicacion-icono">🏉</span>
+                        <span class="etiqueta-dia">LUNES</span>
+                    </div>
+
+                    <h3>ENTRENAMIENTO DEL LUNES</h3>
+
+                    <div class="ubicacion-dato">
+                        <span>🕒</span>
+                        <div>
+                            <strong>HORARIO</strong>
+                            <p>18:30 a 20:30 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="ubicacion-dato">
+                        <span>📍</span>
+                        <div>
+                            <strong>LUGAR DE ENTRENAMIENTO</strong>
+                            <p>Parque Las Palmeras, Cancha 2</p>
+                        </div>
+                    </div>
+
+                    <a class="btn-maps"
+                       href="https://maps.app.goo.gl/YiLd9X679JsT3sTZA"
+                       target="_blank" rel="noopener noreferrer">
+                        CÓMO LLEGAR EN GOOGLE MAPS ↗
+                    </a>
+                </article>
+
+                <article class="ubicacion-card reveal">
+                    <div class="ubicacion-encabezado">
+                        <span class="ubicacion-icono">🏉</span>
+                        <span class="etiqueta-dia">MARTES Y JUEVES</span>
+                    </div>
+
+                    <h3>ENTRENAMIENTOS SEMANALES</h3>
+
+                    <div class="ubicacion-dato">
+                        <span>🕒</span>
+                        <div>
+                            <strong>HORARIO</strong>
+                            <p>20:00 a 22:00 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="ubicacion-dato">
+                        <span>📍</span>
+                        <div>
+                            <strong>LUGAR DE ENTRENAMIENTO</strong>
+                            <p>Estadio de Renca</p>
+                        </div>
+                    </div>
+
+                    <a class="btn-maps"
+                       href="https://maps.app.goo.gl/a3Hnp4G9yH5eb1Q57"
+                       target="_blank" rel="noopener noreferrer">
+                        CÓMO LLEGAR EN GOOGLE MAPS ↗
+                    </a>
+                </article>
+            </div>
+
+            <p class="aviso-horarios reveal">
+                ¿Es tu primera vez? Escríbenos por Instagram
+                antes de asistir a un entrenamiento.
+            </p>
+
+            <a href="#unete" class="btn-rojo reveal">
+                QUIERO UNIRME AL CLUB →
+            </a>
+        </section>
+
+
+        <!-- GALERÍAS -->
+
+        <section class="seccion actividades" id="actividades">
+            <h4 class="reveal">VIVE EL RUGBY</h4>
+            <h2 class="reveal">LO QUE HACEMOS</h2>
+            <div class="linea-roja reveal"></div>
+
+            <p class="reveal">
+                Descubre la pasión de nuestro club
+                a través de fotografías y videos reales.
+            </p>
+
+            <div class="contenedor-tarjetas">
+
+                <button class="tarjeta-interactiva reveal"
+                        type="button" data-galeria="entrenamientos">
+                    <div class="tarjeta-imagen">
+                        <img src="Entrenamiento2.jpeg"
+                             alt="Entrenamientos del Club Leones"
+                             loading="lazy">
+                        <div class="tarjeta-degradado"></div>
+                    </div>
+
+                    <div class="tarjeta-contenido">
+                        <span class="tarjeta-etiqueta">
+                            PREPARACIÓN Y ESFUERZO
+                        </span>
+                        <h3>ENTRENAMIENTOS</h3>
+                        <p>
+                            Disciplina, preparación física
+                            y trabajo en equipo.
+                        </p>
+                        <span class="ver-galeria">
+                            EXPLORAR GALERÍA →
+                        </span>
+                    </div>
+                </button>
+
+                <button class="tarjeta-interactiva reveal"
+                        type="button" data-galeria="competencias">
+                    <div class="tarjeta-imagen">
+                        <img src="competencias1.JPG"
+                             alt="Competencias del Club Leones"
+                             loading="lazy">
+                        <div class="tarjeta-degradado"></div>
+                    </div>
+
+                    <div class="tarjeta-contenido">
+                        <span class="tarjeta-etiqueta">
+                            PASIÓN EN LA CANCHA
+                        </span>
+                        <h3>COMPETENCIAS</h3>
+                        <p>
+                            Partidos, encuentros
+                            y momentos inolvidables.
+                        </p>
+                        <span class="ver-galeria">
+                            EXPLORAR GALERÍA →
+                        </span>
+                    </div>
+                </button>
+
+                <button class="tarjeta-interactiva reveal"
+                        type="button" data-galeria="comunidad">
+                    <div class="tarjeta-imagen">
+                        <img src="inicioP.JPG"
+                             alt="Comunidad del Club Leones"
+                             loading="lazy">
+                        <div class="tarjeta-degradado"></div>
+                    </div>
+
+                    <div class="tarjeta-contenido">
+                        <span class="tarjeta-etiqueta">
+                            NUESTRA FAMILIA
+                        </span>
+                        <h3>COMUNIDAD</h3>
+                        <p>
+                            Compañerismo, celebraciones
+                            y unión dentro y fuera de la cancha.
+                        </p>
+                        <span class="ver-galeria">
+                            EXPLORAR GALERÍA →
+                        </span>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- PRÓXIMOS PARTIDOS -->
+
+        <section class="seccion partidos" id="partidos">
+            <h4 class="reveal">ACOMPAÑA A LOS LEONES</h4>
+            <h2 class="reveal">PRÓXIMOS <span>PARTIDOS</span></h2>
+            <div class="linea-roja reveal"></div>
+
+            <p class="reveal">
+                Ven a apoyar a nuestro equipo y vive
+                la emoción del rugby.
+            </p>
+
+            <div class="partido-proximo reveal">
+                <img src="logoLeones.png"
+                     class="partido-escudo"
+                     alt="Escudo Club Leones"
+                     loading="lazy">
+
+                <div class="partido-informacion">
+                    <span class="partido-etiqueta">
+                        PRÓXIMO ENCUENTRO
+                    </span>
+
+                    <h3>CLUB LEONES</h3>
+
+                    <p>
+                        Próximamente anunciaremos
+                        nuestro siguiente partido.
+                    </p>
+
+                    <span class="partido-pendiente">
+                        FECHA POR CONFIRMAR
+                    </span>
+                </div>
+            </div>
+
+            <a href="https://www.instagram.com/leones.rugby.club.j/"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-rojo reveal">
+                REVISA LAS NOVEDADES EN INSTAGRAM ↗
+            </a>
+        </section>
+
+
+        <!-- NUESTRA NUEVA SECCIÓN DE AUSPICIADORES -->
+
+        <section class="seccion patrocinadores" id="patrocinadores">
+
+            <h4 class="reveal">
+                JUNTOS HACEMOS CRECER EL RUGBY
+            </h4>
+
+            <h2 class="reveal">
+                NUESTROS <span>AUSPICIADORES</span>
+            </h2>
+
+            <div class="linea-roja reveal"></div>
+
+            <p class="reveal">
+                Agradecemos a las empresas y colaboradores
+                que confían en nuestro proyecto y apoyan
+                el crecimiento de la familia Leones.
+            </p>
+
+            <!-- CARRUSEL AUTOMÁTICO -->
+
+            <div class="carrusel-auspiciadores reveal">
+
+                <div class="carrusel-superior">
+                    <span class="carrusel-indicacion">
+                        DESLIZA PARA CONOCERLOS
+                    </span>
+
+                    <div class="carrusel-controles">
+                        <button id="auspiciadoresAnterior"
+                                type="button"
+                                aria-label="Ver auspiciadores anteriores">
+                            ←
+                        </button>
+
+                        <button id="auspiciadoresSiguiente"
+                                type="button"
+                                aria-label="Ver auspiciadores siguientes">
+                            →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="carrusel-ventana"
+                     id="carruselVentana"
+                     tabindex="0"
+                     aria-label="Carrusel de auspiciadores del Club Leones">
+
+                    <div class="carrusel-pista"
+                         id="carruselPista">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- INVITACIÓN A NUEVOS AUSPICIADORES -->
+
+            <div class="patrocinadores-contenido reveal">
+                <div class="patrocinadores-icono">🤝</div>
+
+                <h3>¿QUIERES APOYAR A LOS LEONES?</h3>
+
+                <p>
+                    Seguimos creciendo y queremos hacerlo
+                    junto a personas y empresas que compartan
+                    nuestros valores y nuestra pasión por el deporte.
+                </p>
+
+                <a href="https://www.instagram.com/leones.rugby.club.j/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-rojo">
+                    CONVIÉRTETE EN AUSPICIADOR ↗
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- ÚNETE AL CLUB -->
+
+        <section class="seccion unete" id="unete">
+
+            <h4 class="reveal">FORMA PARTE DE NUESTRA HISTORIA</h4>
+
+            <h2 class="reveal">
+                ÚNETE A LOS <span>LEONES</span>
+            </h2>
+
+            <div class="linea-roja reveal"></div>
+
+            <p class="mensaje-unete reveal">
+                ¿Quieres aprender rugby, mejorar tus habilidades
+                o formar parte de un equipo?
+                ¡Esta es tu oportunidad!
+            </p>
+
+            <p class="descripcion-unete reveal">
+                En Club Leones creemos en el esfuerzo,
+                el compañerismo y las ganas de superarse.
+                Ven a conocernos y descubre nuestra familia.
+            </p>
+
+            <div class="contacto-instagram reveal">
+
+                <div class="instagram-informacion">
+
+                    <div class="instagram-icono" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="36" height="36"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <rect x="2" y="2" width="20"
+                                  height="20" rx="5" ry="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.5" cy="6.5"
+                                    r="1" fill="currentColor"
+                                    stroke="none"/>
+                        </svg>
+                    </div>
+
+                    <h3>SÍGUENOS EN INSTAGRAM</h3>
+
+                    <p class="usuario-instagram">
+                        @leones.rugby.club.j
+                    </p>
+
+                    <p>
+                        Conoce nuestros entrenamientos,
+                        próximos partidos, actividades
+                        y todas las novedades del club.
+                        ¡Escríbenos para saber cómo participar!
+                    </p>
+
+                    <a href="https://www.instagram.com/leones.rugby.club.j/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-instagram">
+                        CONTÁCTANOS POR INSTAGRAM ↗
+                    </a>
+                </div>
+
+                <div class="instagram-qr">
+                    <div class="qr-fondo">
+                        <img src="instagram-qr.png"
+                             alt="Código QR del Instagram oficial del Club Leones"
+                             loading="lazy">
+                    </div>
+                    <p>ESCANEA Y SÍGUENOS</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- PIE DE PÁGINA -->
+
+        <footer>
+            <img src="logoLeones.png"
+                 class="logo-footer"
+                 alt="Escudo Club Leones"
+                 loading="lazy">
+
+            <h3>CLUB LEONES</h3>
+            <p>RUGBY CLUB CHILE</p>
+
+            <div class="footer-linea"></div>
+
+            <a class="footer-instagram"
+               href="https://www.instagram.com/leones.rugby.club.j/"
+               target="_blank" rel="noopener noreferrer">
+                Instagram: @leones.rugby.club.j
+            </a>
+
+            <p>
+                © 2026 Club Leones Rugby Club Chile.
+                Todos los derechos reservados.
+            </p>
+        </footer>
+
+    </main>
+
+
+    <!-- INSTAGRAM FLOTANTE -->
+
+    <a href="https://www.instagram.com/leones.rugby.club.j/"
+       class="instagram-flotante"
+       id="instagramFlotante"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contactar al Club Leones por Instagram"
+       hidden>
+        <svg viewBox="0 0 24 24" width="28" height="28"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20"
+                  rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1"
+                    fill="currentColor" stroke="none"/>
+        </svg>
+    </a>
+
+
+    <!-- GALERÍA EMERGENTE -->
+
+    <dialog id="ventanaGaleria" class="ventana-galeria">
+        <div class="cabecera-galeria">
+            <h2 id="tituloGaleria">GALERÍA</h2>
+
+            <button id="cerrarGaleria" class="cerrar-galeria"
+                    type="button" aria-label="Cerrar galería">
+                ✕
+            </button>
+        </div>
+
+        <p class="descripcion-galeria">
+            Revive los mejores momentos del Club Leones.
+        </p>
+
+        <div id="contenidoGaleria" class="grid-galeria"></div>
+    </dialog>
+
+
+    <!-- FOTO AMPLIADA -->
+
+    <dialog id="visorImagen" class="visor-imagen">
+        <button id="cerrarVisor" class="cerrar-visor"
+                type="button" aria-label="Cerrar fotografía">
+            ✕
+        </button>
+
+        <img id="imagenGrande"
+             alt="Fotografía ampliada del Club Leones">
+    </dialog>
+
+    <script src="scrip.js"></script>
+
+</body>
+</html>
